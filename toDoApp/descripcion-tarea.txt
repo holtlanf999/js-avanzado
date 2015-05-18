@@ -1,0 +1,30 @@
+specs cliente:
+
+1 - Crear.
+2 - Eleminar un "ToDo".
+3 - Contar: "ToDo's" totales, listos y por hacer.
+4 - Navbar -- logo.
+5 - Marcar "ToDo".
+
+specs tecnicos:
+
+1 - Hacer una clase.
+2 - Private array.
+3 - gotAll() (metodo).
+4 - remove con un ID.
+5 - contar.
+
+
+modelo de datos.
+
+1 - Array{ ID: {} }.
+2 - Todo {
+		title:
+		status:
+}
+
+3 - total{
+		all:
+		done:
+		toDo:
+	}
