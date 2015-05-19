@@ -1,7 +1,7 @@
 specs cliente:
 
 1 - Crear.
-2 - Eleminar un "ToDo".
+2 - Eliminar un "ToDo".
 3 - Contar: "ToDo's" totales, listos y por hacer.
 4 - Navbar -- logo.
 5 - Marcar "ToDo".

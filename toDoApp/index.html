@@ -3,16 +3,21 @@
 	<head>
 		<title>2Do App</title>
 		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<!-- CSS -->
 	</head>
 
 	<body>
+		<nav>
+			<img src="img/logo.png" alt="logo">
+		</nav>
+
 		<h1>2Do List</h1>
 		<label for="new-do">What do you need to do?</label>
 		<input type="text" id="new-do" name="new-do" size="40" maxlength="100"/>
-		<button value="save-2-d0" onclick= "app2Do.createDo()" >Save 2Do</button>
-		<h4>To Do's</h4>
+		<button value="save-2-do" id="save-2-do" onclick= "app2Do.createDo()" >Save it!</button>
+		<h2>To Do's</h2>
 		<div id="display-2dos">
 			<!-- dinamic js content goes in here -->
 		</div>

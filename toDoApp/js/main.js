@@ -6,23 +6,27 @@ save2Do = function(){
 	var storeDoArray = [];
 
 	this.createDo = function( saveUsrDo ){
-
+		// asign 
 		saveUsrDo = document.getElementById( 'new-do' ).value;
 
-		display2Dos = document.getElementById( 'display-2dos' );
-		display2Dos.innerHTML += ( 
-			'<p>' + saveUsrDo + '</p>' + 
-			'<input name="checker" type="checkbox"/> ' +
-			'<button name="delete" value="delete">Delete</button>' +
-			'<br/>' 
-		);
+		if ( saveUsrDo != "" ){
+			display2Dos = document.getElementById( 'display-2dos' );
+			display2Dos.innerHTML += ( 
+				'<div>' +
+				'<p>' + saveUsrDo + '</p>' + '   ' +
+				'<input name="checker" type="checkbox"/> ' +
+				'<button name="delete" value="delete">Delete</button>' +
+				'</div>' +
+				'<br/>'
+			);
 
-		storeDoArray.push( saveUsrDo );
-		console.log( storeDoArray );
-
+			// store user input in storeDoArray
+			storeDoArray.push( saveUsrDo );
+			console.log( storeDoArray );
+		} else {
+			alert( "No empty Do's are allowed. Please insert some information" );
+		}
 	};
-
-	//this.arrayStore = function(storeDoArray){}
 
 }
 
