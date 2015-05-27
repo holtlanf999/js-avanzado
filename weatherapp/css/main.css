@@ -1,0 +1,11 @@
+body{
+	color: #fff;
+	background-color: #000;
+}
+
+.display-weather{
+	border: 1px solid #fff; 
+	margin: 2em 0 0 0;
+	padding: 4em 0 0 0;
+	width: 10%;
+}
