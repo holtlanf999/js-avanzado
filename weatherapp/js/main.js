@@ -4,15 +4,17 @@ var weatherApp = ( function( window, undefined ) {
 	compUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
 	displayWeather = document.getElementById( 'display-weather' );
 
-	var pideCLima = function(){
+	var pideClima = function(){
 		var request = new XMLHttpRequest();
 		request.open( 'GET', compUrl + city.value + ',' + country.value, true );
 		
 		request.onload = function(){
 			if( this.status >= 200 && this.status < 400 ){
 				var data = JSON.parse( this.response );
-				console.log( 'conection stablished' );
+				// console.log( 'conection stablished' );
 				console.log( this.response );
+				console.log( this );
+				console.log( data.weather[0].description );
 			} else {
 				console.log( 'server reached, error returned' );
 			}
@@ -23,16 +25,15 @@ var weatherApp = ( function( window, undefined ) {
 			request.send();
 	};
 	return{
-		giveC : pideCLima
+		giveC : pideClima,
 	}
 
-	function getWeather(){ 
+	function printClima(){ 
 		this.printClima = displayWeather.innerHTML = 
 			'<p>' + 'city: ' + city.value + '</p>' + 
 			'<p>' + 'country: ' + country.value + '</p>' +
-			'<p>' + 'temperature: ' + data.main.temp + '</p>'
-
-			;
+			'<p>' + 'temperature: ' + data.main.temp + '</p>';
 	}
+	
 
 } )( window );

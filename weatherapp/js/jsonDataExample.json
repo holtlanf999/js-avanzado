@@ -1,0 +1,38 @@
+{
+	"coord":{
+		"lon":-84.08,
+		"lat":9.93
+	},
+	"sys":{
+		"message":1.2016,
+		"country":"CR",
+		"sunrise":1433243653,
+		"sunset":1433289274},
+		"weather":[
+			{"id":500,"main":"Rain","description":"light rain","icon":"10d"}
+		],
+		"base":"stations",
+		"main":{
+			"temp":299.274,
+			"temp_min":299.274,
+			"temp_max":299.274,
+			"pressure":935.09,
+			"sea_level":1022.45,
+			"grnd_level":935.09,
+			"humidity":81
+		},
+		"wind":{
+			"speed":0.96,
+			"deg":25.5056
+		},
+		"clouds":{
+			"all":92
+		},
+		"rain":{
+			"3h":0.1275
+		},
+		"dt":1433265552,
+		"id":3621849,
+		"name":"San Jose",
+		"cod":200
+}
