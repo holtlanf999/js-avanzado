@@ -4,6 +4,7 @@ var weatherApp = ( function( window, undefined ) {
 	country = document.getElementById( 'type-country' );
 	compUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
 	displayWeather = document.getElementById( 'display-weather' );
+	var printWeather;
 
 	var getWeather = function(){
 
@@ -15,7 +16,6 @@ var weatherApp = ( function( window, undefined ) {
 			if( this.status >= 200 && this.status < 400 ){
 				var data = JSON.parse( this.response );
 				console.log( this.response );
-				console.log( data.weather[0].description );
 			} else {
 				console.log( 'server reached, error returned' );
 			}
@@ -26,55 +26,57 @@ var weatherApp = ( function( window, undefined ) {
 			console.log( 'connection error' );
 		};
 			request.send();
+
 	};
 
 	return{
-		giveC : getWeather,
+		giveC : getWeather
 	}
 
-	function printWeather(){ 
+	printWeather();
 
+	function printWeather(){ 
+		console.log( "printWeather start" );
 		var city =	data.name;
 		var country = data.sys.country;
 		var temp =	data.main.temp;
 		var weatherType = data.weather[0].description;
 		var icon =	data.weather[0].icon;
 		
-		var sunny = function(){
-			this.icon =	icon;
-		}
+		// var sunny = function(){
+		// 	this.icon =	icon;
+		// }
 
-		var rainy = function(){
-			this.icon =	icon;
-		}
+		// var rainy = function(){
+		// 	this.icon =	icon;
+		// }
 
-		var stormy = function(){
-			this.icon =	icon;
-		}
+		// var stormy = function(){
+		// 	this.icon =	icon;
+		// }
 
-		var cloudy = function(){
-			this.icon =	icon;
-		}
-
+		// var cloudy = function(){
+		// 	this.icon =	icon;
+		// }
 
 		this.createWeatherBox = function (type) {
-
+			console.log( "createWeatherBox start" );
 			var weather;
 
-			if( type === "sunny" ){
-				weather = new sunnyWeather();
-			} else if( type === "rainy" ){
-				weather = new rainyWeather();
-			} else if( type === "stormy" ){
-				weather = new stormyWeather();
-			} else if( type === "cloudy" ){
-				weather = new cloudyWeather();
-			}
+			// if( type === "sunny" ){
+			// 	weather = new sunnyWeather();
+			// } else if( type === "rainy" ){
+			// 	weather = new rainyWeather();
+			// } else if( type === "stormy" ){
+			// 	weather = new stormyWeather();
+			// } else if( type === "cloudy" ){
+			// 	weather = new cloudyWeather();
+			// }
 
 			weather.type = type;
 
 			weather.print = function(){
-
+				console.log( "weather.print start" );
 				displayWeather.innerHTML =
 					'<p>' + 'city: ' + city.value + '</p>' + 
 					'<p>' + 'country: ' + country.value + '</p>' +
@@ -84,7 +86,6 @@ var weatherApp = ( function( window, undefined ) {
 			}
 
 		}
-
 	}
-	
+
 } )( window );
