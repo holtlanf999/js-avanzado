@@ -3,16 +3,25 @@
 	<head>
 		<title>spreadSheetApp</title>
 		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<!-- css -->
+		<!-- css ends-->
 	</head>
 
 	<body>
 
-		<h1>spreadSheetApp</h1>
+		<nav>
+			<ul>
+				<li><button id= "add-row" value="addRow">Add Row</button></li>
+				<li><input type="text" id="search" size="20" placeholder=" Search" ></li>
+				<li><button id= "download" value="download">Download</button></li>
+			</ul>
+		</nav><!-- nav ends -->
+
+		<div id="table-container"></div>
 
 		<!-- script -->
 		<script type="text/javascript" src="js/main.js"></script>
-		<!-- script -->
+		<!-- script  ends-->
 	</body>
 </html>

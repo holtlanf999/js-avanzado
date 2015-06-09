@@ -1,0 +1,27 @@
+
+nav{
+	background-color: #000;
+	color: #fff;
+	overflow: hidden;
+}
+
+nav ul{
+	list-style: none;
+}
+
+nav ul li{
+	display: inline-block;
+	padding: 0.2em 5em 0.2em 0em;
+}
+
+nav ul li input{
+	background-color: #929292;
+	border: 1px solid #000;
+	border-radius: 0.5em;
+}
+
+button{
+	background-color: transparent;
+	border: 1px solid #fff;
+	border-radius: 0.5em;
+}
