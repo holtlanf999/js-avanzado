@@ -16,7 +16,7 @@ var weatherApp = ( function( window, undefined ) {
 			if( this.status >= 200 && this.status < 400 ){
 				var data = JSON.parse( this.response );
 				console.log( this.response );
-				printW( data );
+				weatherData( data );
 			} else {
 				console.log( 'server reached, error returned' );
 			}
@@ -34,26 +34,51 @@ var weatherApp = ( function( window, undefined ) {
 	}
 
 	// Para producir con factory
-	function printW( data ){ 
-		console.log( "printW start" );
+	function weatherData( data ){ 
+		console.log( "weatherData start" );
 		this.city = data.name;
 		this.country = data.sys.country;
 		this.temp = data.main.temp;
-		this.weatherType = data.weather[0].description;
-		this.icon =	iconName + data.weather[0].icon;
-		console.log( this.city );
+		this.weatherDescription = data.weather[0].description;
+		this.icon =	null;
 	}
 	// Para producir con factory
 
-	function wFactory( ){
-		console.log( "wFactory start" );
-
-		wFactory.prototype.createWBox = function cWeatherBox( options ) {
+	// Proceso de factory
+	function weatherFactory(){}
+	weatherFactory.prototype.createWBox = function cWeatherBox( data ) {
+		var weatherCode = data.weather[0].id;
 		displayWeather.innerHTML +=
-			'<p>' + 'city: ' + city.value + '</p>' + 
-			'<p>' + 'country: ' + country.value + '</p>' +
-			'<p>' + 'temperature: ' + temp.value + '</p>' +
+			'<p>' + 'city: ' + cityOpt + '</p>' + 
+			'<p>' + 'country: ' + countryOpt + '</p>' +
+			'<p>' + 'temperature: ' + tempOpt + '</p>' +
 			'<p>' + 'weather: ' + iconName + weatherType.value + '</p>';
-		}	
+
+		if ( 200 <= weatherCode <= 232 == true){
+			weatherData(data).icon = iconName + '11d.png';
+		} else if( 300 <= weatherCode <= 321 || 511 <= weatherCode <= 522 == true ){
+			weatherData(data).icon = iconName + '09d.png';
+		} else if( 500 <= weatherCode <= 504 == true ){
+			weatherData(data).icon = iconName + '10d.png';
+		} else if( 600 <= weatherCode <= 621 == true ){
+			weatherData(data).icon = iconName + '13d.png';
+		} else if( 701 <= weatherCode <= 741 == true ){
+			weatherData(data).icon = iconName + '50d.png';
+		} else if( 800 <= weatherCode <= 801 == true ){
+			weatherData(data).icon = iconName + '02d.png';
+		} else if( 802 == weatherCode ){
+			weatherData(data).icon = iconName + '03d.png';
+		} else if( 803 <= weatherCode <= 804 == true ){
+			weatherData(data).icon = iconName + '03d.png';
+		} else if( weatherCode === null ){
+			return false;
+		}
+
+		return new weatherCode( data );
 	}
+
+	var weatherPrint = new weatherFactory( data );
+	var algo = weatherPrint.createWBox( {
+		weatherCode : data.weather[0].id
+	} );
 } )( window );
