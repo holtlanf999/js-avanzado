@@ -12,16 +12,31 @@
 
 		<nav>
 			<ul>
-				<li><button id= "add-row" value="addRow">Add Row</button></li>
+				<li><button id= "add-row" value="addRow" onclick="addRow()">Add Row</button></li>
 				<li><input type="text" id="search" size="20" placeholder=" Search" ></li>
 				<li><button id= "download" value="download">Download</button></li>
 			</ul>
 		</nav><!-- nav ends -->
 
-		<div id="table-container"></div>
+		<div id="table-container">
+			<table class="table">
+				<thead>
+					<tr>
+						<td></td>
+						<th>A</th>
+						<th>B</th>
+						<th>C</th>
+						<th>D</th>
+						<th>E</th>
+					</tr>
+				</thead>
+				<tbody id="tableb">
+				</tbody>
+			</table>
+		</div>
 
 		<!-- script -->
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/table.js"></script>
 		<!-- script  ends-->
 	</body>
 </html>
