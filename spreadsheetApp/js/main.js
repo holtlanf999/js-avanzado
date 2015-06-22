@@ -37,30 +37,24 @@ var spreadsheet = ( function( window, undefined ){
 		document.getElementById( 'add-row' ).addEventListener ( 'click', function addNewRow(){
 
 			var newTr = '';
+			var r = rows - 1;
+			var c= 0;
 
-			// for( var r = 0; r < max; r++ ){
-			// 	console.log( matriz );
+			if( r < rows ){
+				rows++;
+				newTr += '<tr><th>' + ( rows ) + '</th>';
 
-			// 	appendRow = newTr += '<tr><th>'+( r + 1 )+'</th>';
+				for ( c = 0; c < max; c++ ){
+					console.log( 'r: ' + r );
+					console.log( 'c: ' + c );
+					console.log( 'matriz[ r ][ c ]: ' + matriz[ r ][ c ] );
+					console.log( 'matriz: ' + matriz[ c ] );
 
-			// 		for( var c = 0; c > matriz.length; c++ ){
-
-			// 			console.log( 'hola' );
-
-			// 			// newTr += 
-			// 			// 	'<td id="' + r + '-' + c + '">' + matriz[ r ][ c ] + '</td>';
-			// 		}
-
-			// 	newTr += '</tr>';
-			// }
-
-			newTr += 
-				'<tr>' +
-					'<th>' + ( r + 1 ) + '</th>'+
-					'<td id="' + r + '-' + 1 + '">' + matriz + '</td>' +
-				'</tr>'; 
-
-			document.getElementById( 'tableBody' ).appendChild( newTr );
+					newTr += '<td id="' + ( r + 1 ) + '-' + c + '">' + matriz[ r ][ c ] + '</td>';
+					matriz.push( c + 1 );
+				}
+			}
+			tableBody.innerHTML += newTr;
 		} );
 
 		tableBody.innerHTML = tr;
@@ -74,7 +68,7 @@ var spreadsheet = ( function( window, undefined ){
 		var cell = undefined;
 		for( var r = 0; r < matriz.length;  r++ ) {
 			for( var c = 0; c < matriz.length; c++){
-				var cell = document.getElementById( r + '-' + c );
+				var cell = document.getElementById( r + '-' + c )
 				cell.addEventListener( 'dblclick', clickEvent ); 
 			}
 		}
