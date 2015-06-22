@@ -9,40 +9,59 @@ var spreadsheet = ( function( window, undefined ){
 	* Init the matriz wiht rows x columns.
 	*/
 	function initMatriz(){
-		for(var r = 0; r < rows; r++){
+		for( var r = 0; r < rows; r++ ){
 			var columnsArray = [];
-			for(var c = 0; c < columns; c++){
-				columnsArray.push(c+1);
+			for( var c = 0; c < columns; c++ ){
+				columnsArray.push( c + 1 );
 			}
-			matriz.push(columnsArray);
+			matriz.push( columnsArray );
 		}
 	};
 
 	/**
 	* Print the table body, adds new row.
 	*/
-	function printTable( ){
+	function printTable(){
 		var tr = '';
-		var r = 0;
+		// var r = 0;
 		var max = matriz.length;
 
-		for( ; r < max; r++ ){
-			tr += '<tr><th>'+(r+1)+'</th>';
-			for( var c = 0; c < matriz[r].length; c++ ){
-				tr += '<td id="' + r + '-' + c + '">' + matriz[r][c] + '</td>';
+		for( var r = 0; r < max; r++ ){
+			tr += '<tr><th>'+ ( r + 1 ) +'</th>';
+			for( var c = 0; c < matriz[ r ].length; c++ ){
+				tr += '<td id="' + r + '-' + c + '">' + matriz[ r ][ c ] + '</td>';
 			}
 			tr += '</tr>';
 		}
 
-		function addNewRow( max ){
-			// for( i = 6; i > max; i++ ){
-			// 	th = i;
+		document.getElementById( 'add-row' ).addEventListener ( 'click', function addNewRow(){
+
+			var newTr = '';
+
+			// for( var r = 0; r < max; r++ ){
+			// 	console.log( matriz );
+
+			// 	appendRow = newTr += '<tr><th>'+( r + 1 )+'</th>';
+
+			// 		for( var c = 0; c > matriz.length; c++ ){
+
+			// 			console.log( 'hola' );
+
+			// 			// newTr += 
+			// 			// 	'<td id="' + r + '-' + c + '">' + matriz[ r ][ c ] + '</td>';
+			// 		}
+
+			// 	newTr += '</tr>';
 			// }
-		}
 
-		console.log( matriz );
-		
+			newTr += 
+				'<tr>' +
+					'<th>' + ( r + 1 ) + '</th>'+
+					'<td id="' + r + '-' + 1 + '">' + matriz + '</td>' +
+				'</tr>'; 
 
+			document.getElementById( 'tableBody' ).appendChild( newTr );
+		} );
 
 		tableBody.innerHTML = tr;
 		tableEvents();
@@ -83,6 +102,7 @@ var spreadsheet = ( function( window, undefined ){
 	return{
 		revealMatriz : initMatriz,
 		revealprintT : printTable,
+		// revealNewRow : 
 		revealdataM : dataManagement,
 		revealdownloadD : downloadData
 	}
@@ -93,3 +113,4 @@ spreadsheet.revealMatriz();
 spreadsheet.revealprintT();
 spreadsheet.revealdataM();
 spreadsheet.revealdownloadD();
+
