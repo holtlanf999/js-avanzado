@@ -23,7 +23,6 @@ var spreadsheet = ( function( window, undefined ){
 	*/
 	function printTable(){
 		var tr = '';
-		// var r = 0;
 		var max = matriz.length;
 
 		for( var r = 0; r < max; r++ ){
@@ -41,20 +40,19 @@ var spreadsheet = ( function( window, undefined ){
 			var c= 0;
 
 			if( r < rows ){
+				matriz.push( [ '','','','','' ] );
+				matriz[ rows ].push( c );
 				rows++;
 				newTr += '<tr><th>' + ( rows ) + '</th>';
 
 				for ( c = 0; c < max; c++ ){
-					console.log( 'r: ' + r );
-					console.log( 'c: ' + c );
-					console.log( 'matriz[ r ][ c ]: ' + matriz[ r ][ c ] );
-					console.log( 'matriz: ' + matriz[ c ] );
-
 					newTr += '<td id="' + ( r + 1 ) + '-' + c + '">' + matriz[ r ][ c ] + '</td>';
-					matriz.push( c + 1 );
 				}
+				tr += '</tr>';
 			}
+
 			tableBody.innerHTML += newTr;
+
 		} );
 
 		tableBody.innerHTML = tr;
@@ -82,7 +80,6 @@ var spreadsheet = ( function( window, undefined ){
 	* save, set, get and search data.
 	*/
 	function dataManagement(){
-		// console.log( 'dataManagement starts' );
 	}
 
 	/**
@@ -96,7 +93,6 @@ var spreadsheet = ( function( window, undefined ){
 	return{
 		revealMatriz : initMatriz,
 		revealprintT : printTable,
-		// revealNewRow : 
 		revealdataM : dataManagement,
 		revealdownloadD : downloadData
 	}
