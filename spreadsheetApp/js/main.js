@@ -4,23 +4,21 @@ var spreadsheet = ( function( window, undefined ){
 	var rows = 5;
 	var columns = 5;
 	var tableb = document.getElementById('tableBody');
-	
-	/**
-	* Init the matriz wiht rows x columns.
-	*/
+
 	function initMatriz(){
+
 		for( var r = 0; r < rows; r++ ){
 			var columnsArray = [];
+
 			for( var c = 0; c < columns; c++ ){
 				columnsArray.push( c + 1 );
 			}
+
 			matriz.push( columnsArray );
+			// console.log( columnsArray );
 		}
 	};
 
-	/**
-	* Print the table body, adds new row.
-	*/
 	function printTable(){
 		var tr = '';
 		var max = matriz.length;
@@ -36,18 +34,19 @@ var spreadsheet = ( function( window, undefined ){
 		document.getElementById( 'add-row' ).addEventListener ( 'click', function addNewRow(){
 
 			var newTr = '';
-			var r = rows - 1;
-			var c= 0;
+			var cont1 = rows - 1;
+			var cont2 = 0;
 
-			if( r < rows ){
+			if( cont1 < rows ){
 				matriz.push( [ '','','','','' ] );
-				matriz[ rows ].push( c );
+				matriz[ rows ].push( cont2 );
 				rows++;
 				newTr += '<tr><th>' + ( rows ) + '</th>';
 
-				for ( c = 0; c < max; c++ ){
-					console.log( 'matriz ' + c + '= ' + matriz[ c + 1 ] );
-					newTr += '<td id="' + ( r + 1 ) + '-' + c + '">' + matriz[ r ][ c ] + '</td>';
+				for ( cont2 = 0; cont2 < max; cont2++ ){
+					console.log(  'newTr = ' + newTr + ' cont1 = ' + cont1 + ' cont2 = ' + cont2 );
+					// console.log( 'matriz ' + cont2 + '= ' + matriz[ cont2 + 1 ] );
+					newTr += '<td id="' + ( cont1 + 1 ) + '-' + cont2 + '">' + matriz[ cont1 ][ cont2 ] + '</td>';
 				}
 				tr += '</tr>';
 			}
@@ -60,9 +59,6 @@ var spreadsheet = ( function( window, undefined ){
 		tableEvents();
 	};
 
-	/**
-	* Makes possible to edit the table cells.
-	*/
 	function tableEvents(){
 		var cell = undefined;
 		for( var r = 0; r < matriz.length;  r++ ) {
@@ -77,15 +73,9 @@ var spreadsheet = ( function( window, undefined ){
 		event.target.setAttribute( 'contentEditable', true ); 
 	};
 
-	/**
-	* save, set, get and search data.
-	*/
 	function dataManagement(){
 	}
 
-	/**
-	* Download the full table in .csv format.
-	*/
 	function downloadFile(){
 		// console.log( 'downloadFile starts' );
 	}
