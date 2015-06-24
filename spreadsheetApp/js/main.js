@@ -46,6 +46,7 @@ var spreadsheet = ( function( window, undefined ){
 				newTr += '<tr><th>' + ( rows ) + '</th>';
 
 				for ( c = 0; c < max; c++ ){
+					console.log( 'matriz ' + c + '= ' + matriz[ c + 1 ] );
 					newTr += '<td id="' + ( r + 1 ) + '-' + c + '">' + matriz[ r ][ c ] + '</td>';
 				}
 				tr += '</tr>';
@@ -85,8 +86,8 @@ var spreadsheet = ( function( window, undefined ){
 	/**
 	* Download the full table in .csv format.
 	*/
-	function downloadData(){
-		// console.log( 'downloadData starts' );
+	function downloadFile(){
+		// console.log( 'downloadFile starts' );
 	}
 
 
@@ -94,7 +95,7 @@ var spreadsheet = ( function( window, undefined ){
 		revealMatriz : initMatriz,
 		revealprintT : printTable,
 		revealdataM : dataManagement,
-		revealdownloadD : downloadData
+		revealdownloadD : downloadFile
 	}
 
 } )( window );
