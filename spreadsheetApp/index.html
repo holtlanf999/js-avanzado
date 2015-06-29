@@ -14,7 +14,7 @@
 		<nav>
 			<ul>
 				<li><button id= "add-row" value="addRow">Add Row</button></li>
-				<li><input type="text" id="search" size="20" placeholder=" Search"></li>
+				<li><input type="text" id="search" size="20" placeholder=" Search" onkeyup="spreadsheet.revealSearch()" onblur= "spreadsheet.revealCSearch()"></li>
 				<li><button id= "download" value="download">Download</button></li>
 			</ul>
 		</nav><!-- nav ends -->

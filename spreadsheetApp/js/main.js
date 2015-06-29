@@ -30,6 +30,7 @@ var spreadsheet = ( function( window, undefined ){
 			}
 			tr += '</tr>';
 		}
+		// console.log(  matriz );
 
 		document.getElementById( 'add-row' ).addEventListener ( 'click', function addNewRow(){
 
@@ -38,52 +39,121 @@ var spreadsheet = ( function( window, undefined ){
 			var cont2 = 0;
 
 			if( cont1 < rows ){
-				matriz.push( [ '','','','','' ] );
-				matriz[ rows ].push( cont2 );
+				matriz.push( [] );
 				rows++;
 				newTr += '<tr><th>' + ( rows ) + '</th>';
 
 				for ( cont2 = 0; cont2 < max; cont2++ ){
-					console.log(  'newTr = ' + newTr + ' cont1 = ' + cont1 + ' cont2 = ' + cont2 );
-					// console.log( 'matriz ' + cont2 + '= ' + matriz[ cont2 + 1 ] );
+					matriz[ cont1 + 1 ].push( cont2 + 1 );
 					newTr += '<td id="' + ( cont1 + 1 ) + '-' + cont2 + '">' + matriz[ cont1 ][ cont2 ] + '</td>';
 				}
+
 				tr += '</tr>';
 			}
 
-			tableBody.innerHTML += newTr;
+			console.log( ' cont1 = ' + cont1 + ' cont2 = ' + cont2 );
+			console.log(  matriz );
 
+			tableBody.innerHTML += newTr;
 		} );
 
 		tableBody.innerHTML = tr;
-		tableEvents();
+		_tableEvents();
 	};
 
-	function tableEvents(){
+	function _tableEvents( ){
 		var cell = undefined;
 		for( var r = 0; r < matriz.length;  r++ ) {
 			for( var c = 0; c < matriz.length; c++){
-				var cell = document.getElementById( r + '-' + c )
-				cell.addEventListener( 'dblclick', clickEvent ); 
+				var cell = document.getElementById( r + '-' + c );
+				cell.addEventListener( 'dblclick', _clickEvent );
 			}
 		}
 	};
 
-	function clickEvent(){
+	function _clickEvent(){
 		event.target.setAttribute( 'contentEditable', true ); 
 	};
 
+	function searchCell(){ 
+
+		var search = document.getElementById( 'search' ).value;
+		// console.log( 'searchVal = ' + typeof( search ) + ' = ' + search );
+
+
+
+		for( var r = 0; r < matriz.length;  r++ ) {
+			for( var c = 0; c < matriz.length; c++){
+				var cell = document.getElementById( r + '-' + c );
+			}
+		}
+
+
+
+		// var cell = document.getElementById( "2-2" );
+		// console.log( 'cellVal = ' + typeof( cell.innerText ) + ' = ' + cell.innerText );
+
+		if( search === cell.innerText ){
+			cell.className = 'highlighted';
+		} else{
+			console.log( 'no match found' );			
+		}
+
+	}
+
+	function clearSearch(){
+		var cell = document.getElementById( "2-2" );
+		cell.className = '';
+	}
+
 	function dataManagement(){
+
+		this.setData = function setData(){
+			localStorage.cellData = matriz;
+		}
+
+		this.saveData = function saveData(){
+
+		}
+
+		this.getData = function getData(){
+
+		}
+
 	}
 
 	function downloadFile(){
-		// console.log( 'downloadFile starts' );
+		
+		var stringFormat = [
+			'A,B,C,D,E'
+		];
+
+		var cont = 0;
+		var max = matriz.length;
+		for( ; cont < max; cont++ ){
+			stringFormat.push( matriz[max].join( ',' ) );
+		}
+
+		console.log( matriz );
+
+		var csvFile = stringFormat.join('\n');
+		var file = document.createElement('file');
+		
+		file.href = 'data:attachment/csv,' + stringFormat;
+		file.target = '_blank';
+		file.download = 'tabla.csv';
+
+		var download = document.getElementById('download');
+		download.click
+
 	}
 
 
 	return{
 		revealMatriz : initMatriz,
 		revealprintT : printTable,
+		revealSearch : searchCell,
+		revealCSearch :  clearSearch,
 		revealdataM : dataManagement,
 		revealdownloadD : downloadFile
 	}

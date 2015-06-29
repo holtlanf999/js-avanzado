@@ -48,3 +48,7 @@ thead{
 th, td{
 	border: 1px solid #000;
 }
+
+.highlighted{
+	border: 2px solid #00ff18;
+}
