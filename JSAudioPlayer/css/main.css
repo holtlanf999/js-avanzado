@@ -7,7 +7,7 @@ button{
 	color: #000; 
 }
 
-#player-background{
+#player-song-list{
 	border: 1px solid #fff;
 	display: block;
 	margin: 1em auto;
@@ -15,9 +15,13 @@ button{
 	width: 40% ;
 }
 
-#player-background button{
+#player-song-list button{
 	float: left;
-	margin: 0 1em 0 0;
+	margin: 0 auto;
+}
+
+#player-song-list ul li{
+	border-bottom: 1px solid #fff;
 }
 
 #player-bar{

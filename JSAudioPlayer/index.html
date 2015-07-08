@@ -15,7 +15,7 @@
 
 	<body>
 
-		<div id= "player-background">
+		<div id= "player-song-list">
 			<ul>
 				<li id="song1">
 					<button id= "play1">play</button>
@@ -40,8 +40,11 @@
 			<button id="previous" onclick="">Prev</button>
 			<button id="next" onclick="">Next</button>
 
-			<button id="vol-up" onclick="">VolUp</button>
-			<button id="vol-down" onclick="">VolDown</button>
+			<p id="duration">0</p>
+			<p id="currentTimeElement">0</p>
+
+
+			<input type="range" name="volume" min="0" max="1"/>
 
 			<p id="song-name">Nombre de la cancion que suena</p>
 		</div>		
