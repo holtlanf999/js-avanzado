@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	
+
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 		<!-- CSS -->
@@ -12,25 +12,40 @@
 
 		<title>JSAudioPlayer</title>
 	</head>
+
 	<body>
+
 		<div id= "player-background">
 			<ul>
-				<li id="song1">Song1Name</li>
-				<li id="song2">Song2Name/li>
-				<li id="song3">Song3Name</li>
+				<li id="song1">
+					<button id= "play1">play</button>
+					<p>Song1Name</p>
+				</li>
+				
+				<li id="song2">
+					<button id= "play2">play</button>
+					<p>Song2Name</p>
+				</li>
+
+				<li id="song3">
+					<button id= "play3">play</button>
+					<p>Song3Name</p>
+				</li>
 			</ul>
+		</div>
 
-			<div id="player-bar">
-				<button id="play">Play</button>
-				<button id="pause">Pause</button>
-				<button id="previous">Prev</button>
-				<button id="next">Next</button>
+		<div id="player-bar">
+			<button id="play" onclick="">Play</button>
+			<button id="pause" onclick="">Pause</button>
+			<button id="previous" onclick="">Prev</button>
+			<button id="next" onclick="">Next</button>
 
-				<button id="vol-up">VolUp</button>
-				<button id="vol-down">VolDown</button>
-			</div>
-		</div><!-- wrapper -->
+			<button id="vol-up" onclick="">VolUp</button>
+			<button id="vol-down" onclick="">VolDown</button>
 
+			<p id="song-name">Nombre de la cancion que suena</p>
+		</div>		
+		
 		<!-- script -->
 		<script type="text/javascript" src="js/AudioPlayer.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
