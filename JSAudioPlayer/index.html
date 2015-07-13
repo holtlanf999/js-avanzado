@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/normalize.css"/>
+		<link rel="stylesheet" href="css/main.css"/>
+		<!-- CSS -->
+
+		<title>JSAudioPlayer</title>
+	</head>
+
+	<body>
+
+		<div class= "player-song-list">
+			<ul id= "songList">
+			</ul>
+		</div>
+
+		<div id="player-bar">
+			<button id="play" onclick="player.play()">Play</button>
+			<button id="pause" onclick="player.pause()">Pause</button>
+			<button id="previous" onclick="player.prev()">Prev</button>
+			<button id="next" onclick="player.next()">Next</button>
+			
+			<p>Duration: </p>
+			<p id="duration">0</p>
+			<p>current time: </p>
+			<p id="currentTimeElement">0</p>
+
+			<label for="volume">Volume</label>
+			<input type="range" name="volume" min="0" max="1" step= "0.1"/>
+
+			<p id="song-name">Nombre de la cancion que suena</p>
+		</div>		
+		
+		<!-- script -->
+		<script type="text/javascript" src="js/AudioPlayer.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<!-- script -->
+	</body>
+	
+	
+</html>
