@@ -49,6 +49,7 @@ li{
 
 #vol-range{
 	border-radius: 1em;
+	border: none; 
 }
 
 .volume img{

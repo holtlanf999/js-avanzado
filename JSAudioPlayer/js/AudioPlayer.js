@@ -34,7 +34,7 @@
 		for( i = 0; i < songList.length; i++ ){
 			document.getElementById( 'songList' ).innerHTML += 
 			'<li>' + 
-				'<img src="img/play.png" class="play" id= play' + i + '/>' + 
+				'<img src="img/play.png" onclick= "player.selectList(' + i + ')" class="play"/>' + 
 				'<p>' + songList[i].name + '</p>' +
 			'</li>';
 		}
@@ -46,13 +46,12 @@
 		audio.play();
 	};
 
-	function playFromList(){
-		console.log( "play from list" );
-
-		for( i = 0; i < songList.length; i++ ){
-			playBtn = document.getElementById( "play" + i );
-			console.log( "play btn" );
-		}
+	function playFromList( id ){
+		audio.setAttribute( 'src', songList[ id ].src );
+		name.innerHTML = songList[ id ].name;
+		artist.innerHTML = songList[ id ].artist;
+		document.body.style.backgroundImage = "url(" + songList[ id ].background + ")";
+		audio.play();
 	}
 
 	function pauseSong(){
@@ -69,7 +68,6 @@
 			audio.setAttribute( 'loop', false );
 			console.log( audio );
 		}
-		
 	};
 
 	function prevSong(){
@@ -116,12 +114,13 @@
 		initSong( songList );
 
 		return{
-			play:   playSong,
-			pause:  pauseSong,
-			repeat: repeatSong,
-			prev:   prevSong,
-			next:   nextSong,
-			vol:    vol
+			play:   	 playSong,
+			pause:  	 pauseSong,
+			repeat: 	 repeatSong,
+			prev:   	 prevSong,
+			next:   	 nextSong,
+			vol:         vol,
+			selectList:  playFromList
 		}
 	}
 
