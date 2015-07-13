@@ -3,21 +3,25 @@ body{
 	color: #fff;
 }
 
-button{
-	color: #000; 
-}
-
 .player-song-list{
+	background-color: rgba( 0, 0, 0, 0.5 );
 	border: 1px solid #fff;
+	border-radius: 1em;
 	display: block;
-	margin: 1em auto;
+	margin: 1em;
+	overflow: hidden;
 	padding: 1em;
 	width: 40% ;
 }
 
-.player-song-list button{
-	float: left;
-	margin: 0 auto;
+.play, #pause, #prev, #next, #repeat{
+	width: 4em;
+	height: 4em;
+}
+
+#songList li p{
+	float: right;
+	margin: 1.5em auto;
 }
 
 .player-song-list ul li{
@@ -25,9 +29,12 @@ button{
 }
 
 #player-bar{
+	background-color: rgba( 0, 0, 0, 0.5 );
 	border: 1px solid #fff;
+	border-radius: 1em;
+	float: left;
 	display: block;
-	margin: 0 auto;
+	margin: 1em;
 	padding: 1em;
 	width: 40% ;
 }
@@ -35,3 +42,18 @@ button{
 li{
 	list-style: none;
 }
+
+.time{
+	float: right;
+}
+
+#vol-range{
+	border-radius: 1em;
+}
+
+.volume img{
+	width: 2em; 
+	height: 2em;
+	margin: 0.6em 0 0 0;
+}
+

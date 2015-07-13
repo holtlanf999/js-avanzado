@@ -13,27 +13,31 @@
 	</head>
 
 	<body>
+	
+		<div id="player-bar">
+			<img src= "img/play.png" id="play" class="play" onclick="player.play()"/>
+			<img src= "img/pause.png" id="pause" onclick="player.pause()"/>
+			<img src= "img/prev.png" id="prev" onclick="player.prev()"/>
+			<img src= "img/next.png" id="next" onclick="player.next()"/>
+			<img src= "img/repeat.png" id="repeat" onclick="player.repeat()"/>
+			
+			<p id="duration" class="time"></p>
+			<p class="time">/</p>
+			<p id="currentTime" class="time"></p>
+
+			<div class="volume">
+				<img src="img/minvol.png"/>
+				<input id="vol-range" type="range" name="vol-range" min="0" max="1" step= "0.1" onchange="player.vol( this.value )"/>
+				<img src="img/maxvol.png"/>
+			</div>
+
+			<p id="song-name"></p>
+			<p id="artist"></p>
+		</div>
 
 		<div class= "player-song-list">
 			<ul id= "songList">
 			</ul>
-		</div>
-
-		<div id="player-bar">
-			<button id="play" onclick="player.play()">Play</button>
-			<button id="pause" onclick="player.pause()">Pause</button>
-			<button id="previous" onclick="player.prev()">Prev</button>
-			<button id="next" onclick="player.next()">Next</button>
-			
-			<p>Duration: </p>
-			<p id="duration">0</p>
-			<p>current time: </p>
-			<p id="currentTimeElement">0</p>
-
-			<label for="volume">Volume</label>
-			<input type="range" name="volume" min="0" max="1" step= "0.1"/>
-
-			<p id="song-name">Nombre de la cancion que suena</p>
 		</div>		
 		
 		<!-- script -->
