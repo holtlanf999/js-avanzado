@@ -15,15 +15,18 @@
 	<body>
 	
 		<div id="player-bar">
-			<img src= "img/play.png" id="play" class="play" onclick="player.play()"/>
-			<img src= "img/pause.png" id="pause" onclick="player.pause()"/>
+		
 			<img src= "img/prev.png" id="prev" onclick="player.prev()"/>
+			<img src= "img/play.png" id="play-pause" class="play" onclick="player.playPause()"/>
+			<!-- <img src= "img/pause.png" id="pause" onclick="player.pause()"/> -->
 			<img src= "img/next.png" id="next" onclick="player.next()"/>
 			<img src= "img/repeat.png" id="repeat" onclick="player.repeat()"/>
 			
 			<p id="duration" class="time"></p>
 			<p class="time">/</p>
 			<p id="currentTime" class="time"></p>
+
+			<input id="song-range" type="range" name="song-range" min="0"  step= "0.1" onchange="currentTime( this.value )"/>
 
 			<div class="volume">
 				<img src="img/minvol.png"/>

@@ -5,9 +5,12 @@
 	var volumeValue = 0.5;
 	var duration = undefined;
 	var currentTime = undefined;
+	var songRange = document.getElementById( 'song-range' );
 	var name = document.getElementById( 'song-name' );
 	var artist = document.getElementById( 'artist' );
 	var cont = 0;
+	var playPause = document.getElementById( 'play-pause' );
+	var toggle = true;
 	
 	var songList = new Array();
 	songList[ 0 ] = { src: 'audio/1.mp3', name: 'Bang Bang (My Baby Shot Me Down)', artist: "Nico Vega", background: "img/backgrounds/nico-vega.jpg"};
@@ -25,10 +28,13 @@
 		name.innerHTML = songList[cont].name;
 		artist.innerHTML = songList[cont].artist;
 		document.body.style.backgroundImage = "url(" + songList[0].background + ")";
+		songRange.setAttribute( 'max', duration );
+		console.log( audio );
 		
 		// audio events
 		audio.addEventListener( 'durationchange', setDuration );
 		audio.addEventListener( 'timeupdate',setCurrentTime );
+		audio.addEventListener( 'ended', autoChange );
 
 		//print playlist
 		for( i = 0; i < songList.length; i++ ){
@@ -42,8 +48,16 @@
 		setCurrentTime();
 	};
 
-	function playSong(){
-		audio.play();
+	function playPauseSong( ){
+		if( toggle == true ){
+			audio.play();
+			toggle = false;	
+			playPause.setAttribute( 'src', 'img/pause.png' );
+		}else{
+			audio.pause();
+			toggle = true;
+			playPause.setAttribute( 'src', 'img/play.png' );
+		}
 	};
 
 	function playFromList( id ){
@@ -51,12 +65,13 @@
 		name.innerHTML = songList[ id ].name;
 		artist.innerHTML = songList[ id ].artist;
 		document.body.style.backgroundImage = "url(" + songList[ id ].background + ")";
+		cont = id;
 		audio.play();
 	}
 
-	function pauseSong(){
-		audio.pause();
-	};
+	// function pauseSong(){
+	// 	audio.pause();
+	// };
 
 	function repeatSong(){
 		var audioLoopAttr = audio.getAttribute( 'loop' );
@@ -96,8 +111,16 @@
 		}
 	};
 
+	function autoChange(){
+		nextSong();
+	} 
+
 	function setDuration(){
-		duration.innerHTML = Math.floor( audio.duration );
+		var mins = Math.floor( audio.duration / 60 );
+		var secs = mins.
+
+		duration.innerHTML = mins + ':';
+		console.log( audio.duration % ( 60 * 60 ) );
 	};
 
 	function vol( amount ){
@@ -114,8 +137,8 @@
 		initSong( songList );
 
 		return{
-			play:   	 playSong,
-			pause:  	 pauseSong,
+			playPause:   	 playPauseSong,
+			// pause:  	 pauseSong,
 			repeat: 	 repeatSong,
 			prev:   	 prevSong,
 			next:   	 nextSong,

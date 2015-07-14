@@ -4,33 +4,32 @@ body{
 }
 
 .player-song-list{
-	background-color: rgba( 0, 0, 0, 0.5 );
-	border: 1px solid #fff;
 	border-radius: 1em;
 	display: block;
+	float: right;
 	margin: 1em;
 	overflow: hidden;
 	padding: 1em;
-	width: 40% ;
+	width: 25% ;
 }
 
-.play, #pause, #prev, #next, #repeat{
+.play, #pause-pause, #prev, #next, #repeat{
 	width: 4em;
 	height: 4em;
 }
 
 #songList li p{
 	float: right;
-	margin: 1.5em auto;
+	margin: 1em;
 }
 
 .player-song-list ul li{
-	border-bottom: 1px solid #fff;
+	background-color: rgba( 0, 0, 0, 0.5 );
+	border: 1px solid #fff;
+	margin: 2em auto;
 }
 
 #player-bar{
-	background-color: rgba( 0, 0, 0, 0.5 );
-	border: 1px solid #fff;
 	border-radius: 1em;
 	float: left;
 	display: block;
@@ -50,6 +49,11 @@ li{
 #vol-range{
 	border-radius: 1em;
 	border: none; 
+}
+
+#song-range{
+	width: 90%;
+	margin: 0 auto;
 }
 
 .volume img{
